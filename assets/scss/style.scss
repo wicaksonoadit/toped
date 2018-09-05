@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+header {
+  background: #42b549;
+  text-align: center;
+  padding: 5px ;
+  img.logo {
+    width: 129px;
+  }
+}
+
+.fieldset {
+  border: 1px solid red;
+  color: red
+}
+
+// form
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  input {
+    width: 50%;
+    border: solid 1px #e0e0e0;
+    padding: 15px 15px;
+    max-height: 62px;
+    margin-right: 15px;
+  }
+}
+
+// button
+
+.btn {
+  display: inline-block;
+  padding: 8px 25px;
+  font-weight: 700;
+  letter-spacing: normal;
+  &.btn-primary {
+    background-color: #ff5722;
+    color: #fff;
+  }
+}

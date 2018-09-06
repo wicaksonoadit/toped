@@ -3,7 +3,7 @@
     <appHeader/>
     <div class="container content">
       <div class="input-group">
-        <input type="text" placeholder="Input your number">
+        <input type="text" placeholder="Input your number" v-model="userInput" @keyup.enter="process">
         <div class="btn btn-primary" @click="getAmount">
           CEK AMOUNT
         </div>
@@ -23,11 +23,26 @@ export default {
   components: {
     appHeader
   },
+  data () {
+    return {
+      userInput: ''
+    }
+  },
   methods: {
+    process: function () {
+      const ifMatch = this.getRealNum(this.userInput)
+      if (ifMatch) {
+        let amount = this.getAmount(ifMatch)
+        console.log(amount)
+      }
+    },
     getRealNum: function (no) {
       const regex = /^(rp\.? ?)*(([0-9]+\.*)+)+(,?[0]{2})?$/gmi
-      const str = 'Rp.15000'
-      console.log(regex.exec(str)[2].replace(/[^0-9 ]/g, ""))
+      const ex = regex.exec(no)
+      if (ex) {
+        return ex[2].replace(/[^0-9 ]/g, "")
+      }
+      return false
     },
     rupiahCurrency: function (angka) {
       var rupiah = '';
@@ -40,20 +55,22 @@ export default {
       return('Rp. '+rupiah.split('',rupiah.length-1).reverse().join(''))
     },
     getAmount: function (num) {
-
       const arr = this.$store.state.fractions
-      let input = 245000
+      let input = num
       let amount = []
-
       arr.forEach(item => {
         if (input >= item) {
           let count = Math.floor(input/item)
-          amount.push(count + 'x' + '' + item)
           input = input - (count*item)
+          amount.push(count + 'x' + '' + item)
         }
       })
 
-      console.log(amount + 'ssia' + input)
+      if (input !== 0) {
+        amount.push('sisa' + '' + input)
+      }
+
+      return amount
     }
   }
 }

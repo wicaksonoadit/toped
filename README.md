@@ -1,6 +1,6 @@
-# test
+# TOKOPEDIA TEST
 
-> Nuxt.js project
+> ADITYA ALIF WICAKSONO (adityawicaksonno@gmail.com)
 
 ## Build Setup
 

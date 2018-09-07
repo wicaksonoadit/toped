@@ -32,6 +32,10 @@ body {
   margin: 0 auto;
 }
 
+.content {
+  padding-top: 30px;
+}
+
 header {
   background: #42b549;
   text-align: center;
@@ -41,10 +45,28 @@ header {
   }
 }
 
-.fieldset {
-  border: 1px solid red;
-  color: red
+.results {
+  margin-top: 20px;
+  ul {
+    margin-top: 20px;
+    li {
+      display: inline-block;
+      padding: 5px 20px;
+      background: rgba(66, 181, 73, .6);
+      border-radius: 3px;
+      margin: 0 10px;
+      &.leftrp {
+        background-color: rgba(255, 87, 34, .8);
+      }
+    }
+  }
 }
+
+.err {
+  color: #ff0000;
+  margin: 20px 0;
+}
+
 
 // form
 
@@ -71,6 +93,11 @@ header {
   letter-spacing: normal;
   &.btn-primary {
     background-color: #ff5722;
+    color: #fff;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: #ef430c;
     color: #fff;
   }
 }

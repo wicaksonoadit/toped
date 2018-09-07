@@ -1,11 +1,15 @@
 export const state = () => ({
   fractions: [100000, 50000, 20000, 10000, 5000, 1000, 500, 100, 50],
+  minRp: [],
+  leftRp: false
 })
 
 export const mutations = {
-
+  setMinRp(state, data) {
+    state.minRp = data
+  },
+  setLeftRp(state, data) {
+    state.leftRp = data
+  }
 }
 
-// ^[a-zA-Z .]*.?([1-9]{1-2}.([0-9]{3}.)*[0-9]{3}|[0-9]+)(\,[0-9][0-9])?$
-
-//^[a-zA-Z .^a-z]*.?([1-9])

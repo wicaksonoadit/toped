@@ -69,6 +69,7 @@ export default {
       return('Rp'+rp.split('',rp.length-1).reverse().join('') + ',00')
     },
     getAmount: function (num) {
+      this.$store.commit('setLeftRp', false)
       const listFractions = this.$store.state.fractions
       let amount = []
       listFractions.forEach(item => {
@@ -79,9 +80,9 @@ export default {
         }
       })
 
-      if (num !== 0) {
-        this.$store.commit('setLeftRp', true)
-        amount.push('Left' + ' ' + this.rupiahCurrency(num))
+        if (num !== 0) {
+          this.$store.commit('setLeftRp', true)
+          amount.push('Left' + ' ' + this.rupiahCurrency(num))
       }
 
       return amount
